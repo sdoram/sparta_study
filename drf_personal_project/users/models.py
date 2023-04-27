@@ -39,10 +39,10 @@ class User(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
-    name = models.CharField(max_length=20)
-    gender = models.CharField(max_length=10)
+    name = models.CharField(max_length=20, null=True)
+    gender = models.CharField(max_length=10, null=True)
     age = models.IntegerField(null=True)
-    introduction = models.TextField()
+    introduction = models.TextField(null=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     # 1. id : 데이터 고유 id 입니다(PK).
