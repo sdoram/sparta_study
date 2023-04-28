@@ -22,8 +22,11 @@ class UserView(APIView):
 class UserDetailView(APIView):
     def get(self, request, id):
         user = get_object_or_404(User, id=id)
-        serializer = UserDetailSerializer(user)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        if request.user == user:
+            serializer = UserDetailSerializer(user)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response({"message":"본인이 아닙니다"}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 
