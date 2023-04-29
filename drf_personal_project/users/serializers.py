@@ -27,7 +27,11 @@ class UserSerializer(serializers.ModelSerializer):
 class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = "__all__"
+        fields = ["email","password","name","gender","age","introduction"]
+        extra_kwargs = {
+            "password": {'write_only': True},
+            "email":{'read_only' : True},
+        }
     
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -38,9 +42,8 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         # Add custom claims
         token['email'] = user.email
         token['name'] = user.name
-        token['age'] = user.age
         token['gender'] = user.gender
-        token['introduction'] = user.introduction
+        token['age'] = user.age
         # ...
 
         return token
