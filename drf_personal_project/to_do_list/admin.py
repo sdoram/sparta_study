@@ -1,0 +1,3 @@
+
+
+admin.site.register(ToDoList)
