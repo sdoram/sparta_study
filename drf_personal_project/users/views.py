@@ -1,5 +1,3 @@
-from typing import Any
-from django.shortcuts import render
 from users.models import User
 from rest_framework.views import APIView
 from rest_framework import status
