@@ -45,13 +45,6 @@ class User(AbstractBaseUser):
     introduction = models.TextField(null=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    # 1. id : 데이터 고유 id 입니다(PK).
-    # 2. email : 아이디로 사용되며 유니크한 값입니다. docs의 기본 모델에 이미 존재
-    # 3. password : 비밀번호로 사용되며 회원 생성, 수정 시 암호화(해시)된 값을 저장해야 합니다.
-    # 4. name : 사용자의 이름입니다.
-    # 5. gender : 사용자의 성별입니다.
-    # 6. age : 사용자의 나이입니다.
-    # 7. introduction : 사용자의 자기소개 글 입니다
 
     objects = UserManager()
 

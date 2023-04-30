@@ -16,13 +16,6 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
     
-    def update(self, validated_data):
-        user = super().update(validated_data)
-        password = user.password
-        user.set_password(password)
-        user.save()
-        return user
-    
 
 class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
