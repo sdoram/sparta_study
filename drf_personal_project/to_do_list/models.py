@@ -7,4 +7,4 @@ class ToDoList(models.Model):
     is_complete = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    completion_at = models.DateTimeField()
+    completion_at = models.DateTimeField(auto_now=is_complete, null=True)

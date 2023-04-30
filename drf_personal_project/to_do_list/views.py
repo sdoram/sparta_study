@@ -32,7 +32,7 @@ class ToDoListDetailView(APIView):
         # 현재 제목이 필수사항 제목 입력 없이 is_complete 작성 가능해야함
         to_do_list = get_object_or_404(ToDoList, id=id)
         if request.user == to_do_list.user:
-            serializer = ToDoListDetailSerializer(to_do_list, data=request.data)
+            serializer = ToDoListDetailSerializer(to_do_list, data=request.data, partial=True)
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
