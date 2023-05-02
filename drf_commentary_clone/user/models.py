@@ -45,8 +45,8 @@ class User(AbstractBaseUser):
     age = models.IntegerField("나이", blank=True, default='')
     introduction = models.TextField("자기 소개", blank=True, default='')
 
-    created_at = models.DateTimeField("생성일", auto_now_add=True)
-    updated_at = models.DateTimeField("수정일", auto_now=True)
+    created_at = models.DateTimeField("생성 시간", auto_now_add=True)
+    updated_at = models.DateTimeField("수정 시간", auto_now=True)
 
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)

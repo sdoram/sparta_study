@@ -24,7 +24,7 @@ class TodoView(APIView):
         return Response({'message': 'delete 요청입니다!'})
     
 
-class ToDoCompleteView(APIView):
+class TodoCompleteView(APIView):
     def put(self, request):
         """ todo의 is_complete를 수정합니다. """
 
