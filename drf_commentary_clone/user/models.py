@@ -42,7 +42,7 @@ class User(AbstractBaseUser):
     name = models.CharField("이름", max_length=20)
     gender = models.CharField(
         "성별", max_length=10, blank=True, default='', choices=genders)
-    age = models.IntegerField("나이", blank=True, default='')
+    age = models.IntegerField("나이", null=True)
     introduction = models.TextField("자기 소개", blank=True, default='')
 
     created_at = models.DateTimeField("생성 시간", auto_now_add=True)
